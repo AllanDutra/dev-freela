@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DevFreela.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -65,6 +61,27 @@ namespace DevFreela.API.Controllers
 
             // ? REMOVER
 
+            return NoContent();
+        }
+
+        // api/projects/1/comments
+        [HttpPost("{id}/comments")]
+        public IActionResult PostComment(int id, [FromBody] CreateCommentModel createComment)
+        {
+            return NoContent();
+        }
+
+        // api/projects/1/start
+        [HttpPut("{id}/start")]
+        public IActionResult Start(int id)
+        {
+            return NoContent();
+        }
+
+        // api/projects/1/finish
+        [HttpPut("{id}/finish")]
+        public IActionResult Finish(int id)
+        {
             return NoContent();
         }
     }
