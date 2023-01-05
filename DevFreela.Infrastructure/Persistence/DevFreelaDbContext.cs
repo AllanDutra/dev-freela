@@ -1,4 +1,5 @@
 using DevFreela.Core.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace DevFreela.Infrastructure.Persistence
 {
