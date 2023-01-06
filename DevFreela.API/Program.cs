@@ -2,6 +2,7 @@ using DevFreela.API.Models;
 using DevFreela.Application.Services.Implementations;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,13 @@ builder.Services.AddScoped<ExampleClass>(e => new ExampleClass { Name = "Initial
 
 #endregion
 
-builder.Services.AddSingleton<DevFreelaDbContext>();
+# region CONFIGURAÇÃO DE BANCO DE DADOS
+
+var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
+
+builder.Services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
+
+#endregion
 
 var app = builder.Build();
 
