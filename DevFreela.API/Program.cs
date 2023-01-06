@@ -26,7 +26,7 @@ builder.Services.AddScoped<ExampleClass>(e => new ExampleClass { Name = "Initial
 
 # region CONFIGURAÇÃO DE BANCO DE DADOS
 
-var connectionString = builder.Configuration.GetConnectionString("DevFreelaCs");
+var connectionString = builder.Configuration.GetConnectionString("DevFreelaCsWork");
 
 builder.Services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
 
