@@ -1,5 +1,7 @@
 using DevFreela.Application.Commands.CreateProject;
+using DevFreela.Core.Repositories;
 using DevFreela.Infrastructure.Persistence;
+using DevFreela.Infrastructure.Persistence.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +19,9 @@ builder.Services.AddSwaggerGen();
 #region INJEÇÃO DE DEPÊNDENCIA
 
 // builder.Services.AddScoped<IProjectService, ProjectService>(); // * SCOPED: OBJETO DIFERENTE PARA CADA REQUISIÇÃO (TEMPO DE VIDA PARA REQUISIÇÕES)
+builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISkillRepository, SkillRepository>();
 
 #endregion
 

@@ -14,7 +14,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
             _connectionString = configuration.GetConnectionString("DevFreelaCsWork");
         }
 
-        public async Task<List<SkillDTO>> GetAll()
+        public async Task<List<SkillDTO>> GetAllAsync()
         {
             #region USANDO DAPPER
 
