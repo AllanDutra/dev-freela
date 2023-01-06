@@ -22,6 +22,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+builder.Services.AddScoped<ICommentRepository, CommentRepository>();
 
 #endregion
 
