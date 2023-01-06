@@ -1,5 +1,6 @@
 namespace DevFreela.API;
 
+#nullable enable
 public class WeatherForecast
 {
     public DateTime Date { get; set; }
