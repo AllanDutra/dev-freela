@@ -1,3 +1,4 @@
+using DevFreela.API.Filters;
 using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Validators;
 using DevFreela.Core.Repositories;
@@ -12,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services
-    .AddControllers()
+    .AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
