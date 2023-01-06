@@ -30,6 +30,8 @@ var connectionString = builder.Configuration.GetConnectionString("DevFreelaCsWor
 
 builder.Services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServer(connectionString));
 
+// builder.Services.AddDbContext<DevFreelaDbContext>(options => options.UseInMemoryDatabase("DevFreela")); // * PARA USAR O BANCO DE DADOS NA MEMÓRIA ENQUANTO NÃO EXISTIR O FÍSICO (instalar pacote Microsoft.EntityFrameworkCore.InMemory)
+
 #endregion
 
 var app = builder.Build();
