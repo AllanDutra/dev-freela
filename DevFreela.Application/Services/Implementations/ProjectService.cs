@@ -1,18 +1,23 @@
+using Dapper;
 using DevFreela.Application.InputModels;
 using DevFreela.Application.Services.Interfaces;
 using DevFreela.Application.ViewModels;
 using DevFreela.Core.Entities;
 using DevFreela.Infrastructure.Persistence;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DevFreela.Application.Services.Implementations
 {
     public class ProjectService : IProjectService
     {
         private readonly DevFreelaDbContext _dbContext;
-        public ProjectService(DevFreelaDbContext dbContext)
+        private readonly string _connectionString;
+        public ProjectService(DevFreelaDbContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
+            _connectionString = configuration.GetConnectionString("DevFreelaCsWork");
         }
         public int Create(NewProjectInputModel inputModel)
         {
@@ -91,7 +96,26 @@ namespace DevFreela.Application.Services.Implementations
 
             project.Start();
 
-            _dbContext.SaveChanges();
+            #region USANDO ENTITY FRAMEWORK
+
+            // _dbContext.SaveChanges();
+
+            #endregion
+
+            #region USANDO DAPPER
+
+            // * USADO QUANDO QUEREMOS MELHORAR A PERFORMANCE QUE PROVAVELMENTE NÃO ESTÁ BOA USANDO ENTITY
+
+            using (var sqlConnection = new SqlConnection(_connectionString))
+            {
+                sqlConnection.Open();
+
+                var script = "UPDATE Projects SET Status = @status, StartedAt = @startedAt WHERE Id = @id";
+
+                sqlConnection.Execute(script, new { status = project.Status, startedAt = project.StartedAt, id });
+            }
+
+            #endregion
         }
 
         public void Update(UpdateProjectInputModel inputModel)
