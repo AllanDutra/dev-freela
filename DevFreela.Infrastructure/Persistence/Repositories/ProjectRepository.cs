@@ -14,7 +14,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
         public ProjectRepository(DevFreelaDbContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
-            _connectionString = configuration.GetConnectionString("DevFreelaCsWork");
+            _connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
         public async Task<List<Project>> GetAllAsync()

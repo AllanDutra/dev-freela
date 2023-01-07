@@ -11,7 +11,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
         private readonly string _connectionString;
         public SkillRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("DevFreelaCsWork");
+            _connectionString = configuration.GetConnectionString("DevFreelaCs");
         }
 
         public async Task<List<SkillDTO>> GetAllAsync()
