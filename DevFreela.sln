@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.API", "DevFreela.API\DevFreela.API.csproj", "{8A72C69E-FC86-452E-AF99-64C53F9932D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevFreela.UnitTests", "DevFreela.UnitTests\DevFreela.UnitTests.csproj", "{7B1D2AE8-05BF-47FC-8731-C4C16724B518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{8A72C69E-FC86-452E-AF99-64C53F9932D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A72C69E-FC86-452E-AF99-64C53F9932D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A72C69E-FC86-452E-AF99-64C53F9932D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B1D2AE8-05BF-47FC-8731-C4C16724B518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1D2AE8-05BF-47FC-8731-C4C16724B518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1D2AE8-05BF-47FC-8731-C4C16724B518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1D2AE8-05BF-47FC-8731-C4C16724B518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
