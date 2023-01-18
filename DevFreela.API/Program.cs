@@ -47,6 +47,12 @@ builder.Services.AddDbContext<DevFreelaDbContext>(options => options.UseSqlServe
 
 #endregion
 
+#region ADICIONANDO MICROSERVICES
+
+builder.Services.AddHttpClient();
+
+#endregion
+
 #region ADICIONANDO CQRS
 
 builder.Services.AddMediatR(typeof(CreateProjectCommand));
