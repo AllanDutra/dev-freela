@@ -63,5 +63,10 @@ namespace DevFreela.Core.Entities
             Description = description;
             TotalCost = totalCost;
         }
+
+        public void SetPaymentPending()
+        {
+            
+        }
     }
 }
