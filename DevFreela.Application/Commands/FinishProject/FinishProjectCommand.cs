@@ -14,7 +14,7 @@ namespace DevFreela.Application.Commands.FinishProject
             Amount = amount;
         }
 
-        public int IdProject { get; private set; }
+        public int IdProject { get; set; }
         public string CreditCardNumber { get; private set; }
         public string Cvv { get; private set; }
         public string ExpiresAt { get; private set; }
