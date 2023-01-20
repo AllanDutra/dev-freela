@@ -66,7 +66,7 @@ namespace DevFreela.Core.Entities
 
         public void SetPaymentPending()
         {
-            
+            Status = ProjectStatusEnum.PaymentPending;
         }
     }
 }
