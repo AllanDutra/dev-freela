@@ -1,11 +1,7 @@
 using DevFreela.API.Filters;
 using DevFreela.Application.Commands.CreateProject;
 using DevFreela.Application.Validators;
-using DevFreela.Core.Repositories;
-using DevFreela.Core.Services;
-using DevFreela.Infrastructure.Auth;
 using DevFreela.Infrastructure.Persistence;
-using DevFreela.Infrastructure.Persistence.Repositories;
 using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -13,13 +9,13 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using DevFreela.Infrastructure.CloudServices.Interfaces;
-using DevFreela.Infrastructure.CloudServices.Implementations;
+using DevFreela.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+#pragma warning disable CS0618
 builder.Services
     .AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
     .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateUserCommandValidator>());
@@ -31,12 +27,7 @@ builder.Services.AddSwaggerGen();
 
 #region INJEÇÃO DE DEPÊNDENCIA
 
-// builder.Services.AddScoped<IProjectService, ProjectService>(); // * SCOPED: OBJETO DIFERENTE PARA CADA REQUISIÇÃO (TEMPO DE VIDA PARA REQUISIÇÕES)
-builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ISkillRepository, SkillRepository>();
-builder.Services.AddScoped<IAuthService, AuthService>();
-builder.Services.AddScoped<IPaymentsService, PaymentsService>();
+builder.Services.AddInfrastructure();
 
 #endregion
 
