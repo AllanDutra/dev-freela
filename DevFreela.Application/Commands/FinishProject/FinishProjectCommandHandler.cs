@@ -18,8 +18,6 @@ namespace DevFreela.Application.Commands.FinishProject
         {
             var project = await _projectRepository.GetByIdAsync(request.IdProject);
 
-            project.Finish();
-
             var paymentInfoDTO = new PaymentInfoDTO
             {
                 IdProject = request.IdProject,
@@ -30,14 +28,13 @@ namespace DevFreela.Application.Commands.FinishProject
                 FullName = request.FullName
             };
 
-            var result = await _paymentsService.ProcessPayment(paymentInfoDTO);
+            _paymentsService.ProcessPayment(paymentInfoDTO);
 
-            if (!result)
-                project.SetPaymentPending();
+            project.SetPaymentPending();
 
             await _projectRepository.SaveChangesAsync();
 
-            return result;
+            return true;
         }
     }
 }
