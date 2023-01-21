@@ -14,12 +14,15 @@ Repository developed during the ASP .NET Core Training course maintained by the 
 _Get all Projects_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client", "freelancer"`
 
 **query params:**
+
 `query?: string`
 
 **response:**
@@ -42,12 +45,15 @@ _Get all Projects_
 _Get Project by your id_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client", "freelancer"`
 
 **route params:**
+
 `id: int`
 
 **response:**
@@ -73,9 +79,11 @@ _Get Project by your id_
 _Create a new Project_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client"`
 
 **body:**
@@ -109,12 +117,15 @@ _Create a new Project_
 _Adds a comment to an existing project using your id_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client", "freelancer"`
 
 **route params:**
+
 `id: int`
 
 **body:**
@@ -138,12 +149,15 @@ _No content_
 _Update a Project by your id_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client"`
 
 **route params:**
+
 `id: int`
 
 **body:**
@@ -168,12 +182,15 @@ _No content_
 _Changes the status of a project to "InProgress" by your id_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client"`
 
 **route params:**
+
 `id: int`
 
 **response:**
@@ -188,12 +205,15 @@ _No content_
 _Changes the status of a project to "PaymentPending" by your id and sends a message to the payment microservice using RabbitMQ_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client"`
 
 **route params:**
+
 `id: int`
 
 **body:**
@@ -220,12 +240,15 @@ _Accepted_
 _Delete a project by your id_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **roles:**
+
 `"client"`
 
 **route params:**
+
 `id: int`
 
 **response:**
@@ -262,9 +285,11 @@ _Get all Skills_
 _Get a User by your id_
 
 **required headers:**
+
 `Authorization: Bearer {token JWT}`
 
 **route params:**
+
 `id: int`
 
 **response:**
