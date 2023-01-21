@@ -43,7 +43,7 @@ namespace DevFreela.API.Controllers
             if (project == null)
                 return NotFound();
 
-            return Ok();
+            return Ok(project);
         }
 
         [HttpPost]
