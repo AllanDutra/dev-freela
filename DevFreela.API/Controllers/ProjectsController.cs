@@ -21,6 +21,10 @@ namespace DevFreela.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get all Projects
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> Get(string query)
@@ -32,6 +36,11 @@ namespace DevFreela.API.Controllers
             return Ok(projects);
         }
 
+        /// <summary>
+        /// Get Project by your id
+        /// </summary>
+        /// <param name="id">Project id</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> GetById(int id)
@@ -46,6 +55,10 @@ namespace DevFreela.API.Controllers
             return Ok(project);
         }
 
+        /// <summary>
+        /// Create a new Project
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "client")]
         public async Task<IActionResult> Post([FromBody] CreateProjectCommand command)
@@ -55,7 +68,12 @@ namespace DevFreela.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = id }, command);
         }
 
-        // api/projects/2
+        /// <summary>
+        /// Update a Project by your id
+        /// </summary>
+        /// <param name="id">Project id</param>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         [Authorize(Roles = "client")]
         public async Task<IActionResult> Put(int id, [FromBody] UpdateProjectCommand command)
@@ -70,7 +88,11 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/3
+        /// <summary>
+        /// Delete a project by your id
+        /// </summary>
+        /// <param name="id">Project id</param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         [Authorize(Roles = "client")]
         public async Task<IActionResult> Delete(int id)
@@ -82,7 +104,12 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/1/comments
+        /// <summary>
+        /// Adds a comment to an existing project using your id
+        /// </summary>
+        /// <param name="id">Project id</param>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost("{id}/comments")]
         [Authorize(Roles = "client, freelancer")]
         public async Task<IActionResult> PostComment(int id, [FromBody] CreateCommentCommand command)
@@ -92,7 +119,11 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/1/start
+        /// <summary>
+        /// Changes the status of a project to "InProgress" by your id
+        /// </summary>
+        /// <param name="id">Project id</param>
+        /// <returns></returns>
         [HttpPut("{id}/start")]
         [Authorize(Roles = "client")]
         public async Task<IActionResult> Start(int id)
@@ -104,7 +135,12 @@ namespace DevFreela.API.Controllers
             return NoContent();
         }
 
-        // api/projects/1/finish
+        /// <summary>
+        /// Changes the status of a project to "PaymentPending" by your id and sends a message to the payment microservice using RabbitMQ
+        /// </summary>
+        /// <param name="id">Project id</param>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPut("{id}/finish")]
         [Authorize(Roles = "client")]
         public async Task<IActionResult> Finish(int id, [FromBody] FinishProjectCommand command)

@@ -13,6 +13,10 @@ namespace DevFreela.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get all Skills
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Get()
         {

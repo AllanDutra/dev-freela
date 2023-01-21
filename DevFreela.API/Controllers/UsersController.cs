@@ -17,6 +17,11 @@ namespace DevFreela.API.Controllers
             _mediator = mediator;
         }
 
+        /// <summary>
+        /// Get a User by your id
+        /// </summary>
+        /// <param name="id">User id</param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -30,6 +35,11 @@ namespace DevFreela.API.Controllers
             return Ok(user);
         }
 
+        /// <summary>
+        /// Register a new User
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody] CreateUserCommand command)
@@ -39,6 +49,11 @@ namespace DevFreela.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id }, command);
         }
 
+        /// <summary>
+        /// Generate a new JWT token
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPut("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login([FromBody] LoginUserCommand command)
