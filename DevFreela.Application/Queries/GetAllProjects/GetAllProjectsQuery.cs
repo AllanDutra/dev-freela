@@ -8,6 +8,6 @@ namespace DevFreela.Application.Queries.GetAllProjects
     {
 
         public string Query { get; set; }
-        public int Page { get; set; }
+        public int Page { get; set; } = 1;
     }
 }
