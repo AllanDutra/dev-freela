@@ -4,6 +4,7 @@ using DevFreela.Infrastructure.Auth;
 using DevFreela.Infrastructure.CloudServices.Implementations;
 using DevFreela.Infrastructure.CloudServices.Interfaces;
 using DevFreela.Infrastructure.MessageBus;
+using DevFreela.Infrastructure.Persistence;
 using DevFreela.Infrastructure.Persistence.Repositories;
 
 namespace DevFreela.API.Extensions
@@ -20,6 +21,8 @@ namespace DevFreela.API.Extensions
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IPaymentsService, PaymentsService>();
             services.AddScoped<IMessageBusService, MessageBusService>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
