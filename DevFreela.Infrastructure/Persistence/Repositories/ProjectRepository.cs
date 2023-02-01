@@ -37,8 +37,7 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
         public async Task<Project> GetByIdAsync(int id)
         {
             return await _dbContext.Projects
-                .Include(p => p.Client)
-                .Include(p => p.Freelancer)
+                .AsNoTracking()
                 .SingleOrDefaultAsync(p => p.Id == id);
         }
 
@@ -72,6 +71,12 @@ namespace DevFreela.Infrastructure.Persistence.Repositories
 
         public async Task SaveChangesAsync()
         {
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task UpdateAsync(Project project)
+        {
+            _dbContext.Projects.Update(project);
             await _dbContext.SaveChangesAsync();
         }
     }
